@@ -1,11 +1,13 @@
+import "reflect-metadata";
 import { Handler } from "@netlify/functions";
 import { Tigris } from "@tigrisdata/core";
-import { Product } from "~/models/tigris/catalog/products";
+import { Product } from "../db/models/product";
 
 const tigrisClient = new Tigris();
+const tigrisDb = tigrisClient.getDatabase();
 
 const handler: Handler = async (event, context) => {
-    const collection = tigrisClient.getDatabase("catalog").getCollection<Product>("products");
+    const collection = tigrisDb.getCollection<Product>(Product);
 
     try {
         const productCursor = collection.findMany();

@@ -2567,16 +2567,16 @@
     "defer-to-connect" "^2.0.1"
 
 "@tigrisdata/core@latest":
-  "integrity" "sha512-xoBFKOD/Aql4kWnj9XuxGUXfN5Ta+vspnXXBN9hCCrd6+rhB/blEyR+FBzABfeXn/4L6csnKxB1qGUJ16zZqIw=="
-  "resolved" "https://registry.npmjs.org/@tigrisdata/core/-/core-1.0.0-beta.21.tgz"
-  "version" "1.0.0-beta.21"
+  "integrity" "sha512-E758jG0v59AoR4Ep0V8B5dkVjNQntggzryJNirc6B7TF4dApboCYiw39YXXeJLW/MAEOtSjwd4eZGDcqEMjWwg=="
+  "resolved" "https://registry.npmjs.org/@tigrisdata/core/-/core-1.0.0-beta.23.tgz"
+  "version" "1.0.0-beta.23"
   dependencies:
     "@grpc/grpc-js" "^1.6.10"
-    "app-root-path" "^3.1.0"
     "chalk" "4.1.2"
     "dotenv" "^16.0.3"
     "google-protobuf" "^3.21.0"
     "json-bigint" "^1.0.0"
+    "reflect-metadata" "^0.1.13"
     "typescript" "^4.7.2"
 
 "@tootallnate/once@1":
@@ -3783,11 +3783,6 @@
   "integrity" "sha512-JtHjzZmJxtzfTSjsCyHgPR155HBe5WGyUyHTaEkfy46qhwCFKx1Epm6nAxgUG3WfUZP1dWhGqj9Z2NOBeZ+uBw=="
   "resolved" "https://registry.npmjs.org/apache-md5/-/apache-md5-1.1.7.tgz"
   "version" "1.1.7"
-
-"app-root-path@^3.1.0":
-  "integrity" "sha512-biN3PwB2gUtjaYy/isrU3aNWI5w+fAfvHkSvCKeQGxhmYpwKFUxudR3Yya+KqVRHBmEDYh+/lTozYCFbmzX4nA=="
-  "resolved" "https://registry.npmjs.org/app-root-path/-/app-root-path-3.1.0.tgz"
-  "version" "3.1.0"
 
 "aproba@^1.0.3 || ^2.0.0":
   "integrity" "sha512-lYe4Gx7QT+MKGbDsA+Z+he/Wtef0BiwDOlK/XkBrdfsh9J/jPPXbX0tE9x9cl27Tmu5gg3QUbUrQYa/y+KOHPQ=="
@@ -14647,6 +14642,11 @@
   dependencies:
     "indent-string" "^4.0.0"
     "strip-indent" "^3.0.0"
+
+"reflect-metadata@^0.1.13":
+  "integrity" "sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg=="
+  "resolved" "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.13.tgz"
+  "version" "0.1.13"
 
 "regenerate-unicode-properties@^10.1.0":
   "integrity" "sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ=="

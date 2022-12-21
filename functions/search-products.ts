@@ -1,8 +1,9 @@
 import { Handler } from "@netlify/functions";
 import { Tigris } from "@tigrisdata/core";
-import { Product } from "~/models/tigris/catalog/products";
+import { Product } from "../db/models/product";
 
 const tigris = new Tigris();
+const tigrisDb = tigris.getDatabase();
 
 const handler: Handler = async(event, context) => {
     const searchReq = JSON.parse(event.body);
@@ -18,7 +19,7 @@ const handler: Handler = async(event, context) => {
     }
 
     try {
-        const products = tigris.getDatabase("catalog").getCollection<Product>("products");
+        const products = tigrisDb.getCollection<Product>(Product);
 
         const searchResult = await products.search(searchReq);
 
