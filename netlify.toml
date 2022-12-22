@@ -8,5 +8,4 @@
   TIGRIS_CLIENT_ID = "change me for your tigris client id"
   TIGRIS_CLIENT_SECRET = "change me for your tigris client secret"
 [functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["reflect-metadata", "@tigrisdata/core"]
+  external_node_modules = ["@tigrisdata/core"]

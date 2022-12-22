@@ -3,15 +3,20 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 
 import { Tigris } from '@tigrisdata/core';
 import data from '../static/storedata.json';
-import { Product } from '../db/models/product';
+import {
+  Product,
+  PRODUCTS_COLLECTION_NAME,
+  ProductSchema
+} from '../db/models/product'
 
 async function main() {
   // setup client & register schemas
   const tigrisClient = new Tigris();
-  await tigrisClient.registerSchemas([Product]);
+  const tigrisDb = tigrisClient.getDatabase();
+  await tigrisDb.createOrUpdateCollection(PRODUCTS_COLLECTION_NAME, ProductSchema);
 
   // load some data in products collection
-  const products = tigrisClient.getDatabase().getCollection(Product);
+  const products = tigrisDb.getCollection(PRODUCTS_COLLECTION_NAME);
   const inserted = await products.insertOrReplaceMany(data);
   console.log(`Inserted ${inserted.length} documents`);
 }
