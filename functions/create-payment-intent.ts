@@ -1,18 +1,16 @@
-// An endpoint that calculates the order total and creates a 
-// PaymentIntent on Stripe 
-
+// An endpoint that calculates the order total and creates a
+// PaymentIntent on Stripe
 import { Tigris } from "@tigrisdata/core"
-import { Product } from "~/models/tigris/catalog/products"
+import { Product } from "../db/models/product"
 
-require("dotenv").config();
+import tigrisDb from '../lib/tigris'
+
 const axios = require("axios");
 const stripeCreatePayment = require("stripe")(process.env.STRIPE_SECRET_KEY),
   headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type"
   };
-
-const tigrisC = new Tigris();
 
 exports.handler = async (event, context) => {
   // CORS
@@ -38,7 +36,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const products = tigrisC.getDatabase("catalog").getCollection<Product>("products");
+  const products = tigrisDb.getCollection<Product>(Product);
 
   // Stripe payment processing begins here
   try {

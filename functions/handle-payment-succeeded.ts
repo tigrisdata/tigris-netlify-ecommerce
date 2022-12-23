@@ -1,7 +1,8 @@
 // Webhook that listens for events sent from Stripe
 // Requires configuration in the Stripe Dashboard
 // For more information read https://stripe.com/docs/webhooks
-require("dotenv").config();
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const stripeHandlePayment = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
