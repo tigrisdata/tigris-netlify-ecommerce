@@ -8,33 +8,33 @@ import {
 
 @TigrisCollection("products")
  export class Product implements TigrisCollectionType {
-    @PrimaryKey({order: 1})
+    @PrimaryKey(TigrisDataTypes.STRING, {order: 1})
     id: string;
 
-    @Field()
+    @Field(TigrisDataTypes.STRING)
     color: string;
 
-    @Field()
+    @Field(TigrisDataTypes.STRING)
     description: string;
 
-    @Field()
+    @Field(TigrisDataTypes.STRING)
     gender?: string;
 
-    @Field()
+    @Field(TigrisDataTypes.STRING)
     name: string;
 
-    @Field()
+    @Field(TigrisDataTypes.STRING)
     review: string;
 
-    @Field()
+    @Field(TigrisDataTypes.NUMBER)
     starrating: number;
 
-    @Field()
+    @Field(TigrisDataTypes.NUMBER)
     price: number;
 
-    @Field({elements: TigrisDataTypes.STRING})
+    @Field(TigrisDataTypes.ARRAY, {elements: TigrisDataTypes.STRING})
     sizes: string[];
 
-    @Field()
+    @Field(TigrisDataTypes.STRING)
     img: string;
  };
