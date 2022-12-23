@@ -1,10 +1,7 @@
-import "reflect-metadata";
 import { Handler } from "@netlify/functions";
-import { Tigris } from "@tigrisdata/core";
 import { Product } from "../db/models/product";
+import tigrisDb from '../lib/tigris'
 
-const tigrisClient = new Tigris();
-const tigrisDb = tigrisClient.getDatabase();
 
 const handler: Handler = async (event, context) => {
     const collection = tigrisDb.getCollection<Product>(Product);

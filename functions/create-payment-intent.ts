@@ -2,8 +2,8 @@
 // PaymentIntent on Stripe
 import { Tigris } from "@tigrisdata/core"
 import { Product } from "../db/models/product"
-import * as dotenv from 'dotenv'
-dotenv.config()
+
+import tigrisDb from '../lib/tigris'
 
 const axios = require("axios");
 const stripeCreatePayment = require("stripe")(process.env.STRIPE_SECRET_KEY),
@@ -11,9 +11,6 @@ const stripeCreatePayment = require("stripe")(process.env.STRIPE_SECRET_KEY),
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type"
   };
-
-const tigrisClient = new Tigris();
-const tigrisDb = tigrisClient.getDatabase();
 
 exports.handler = async (event, context) => {
   // CORS

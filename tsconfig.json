@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       "target": "ES2018",
-      "module": "commonjs",
+      "module": "ESNext",
       "moduleResolution": "Node",
       "resolveJsonModule": true,
       "lib": [
@@ -13,7 +13,6 @@
       "allowJs": true,
       "sourceMap": true,
       "noEmit": true,
-      "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "baseUrl": ".",
       "paths": {
