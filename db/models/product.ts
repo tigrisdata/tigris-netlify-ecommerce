@@ -1,55 +1,40 @@
-import { TigrisCollectionType, TigrisSchema, TigrisDataTypes } from "@tigrisdata/core";
+import {
+  Field,
+  PrimaryKey,
+  TigrisCollection,
+  TigrisCollectionType,
+  TigrisDataTypes
+} from '@tigrisdata/core'
 
-export const PRODUCTS_COLLECTION_NAME = "products";
+@TigrisCollection("products")
+ export class Product implements TigrisCollectionType {
+    @PrimaryKey({order: 1})
+    id: string;
 
-export interface Product extends TigrisCollectionType {
-  id: string;
-  color: string;
-  description: string;
-  gender?: string;
-  name: string;
-  review: string;
-  starrating: number;
-  price: number;
-  sizes: string[];
-  img: string;
-};
+    @Field()
+    color: string;
 
-export const ProductSchema: TigrisSchema<Product> = {
-  id: {
-    type: TigrisDataTypes.STRING,
-    primary_key: {
-      order:1
-    }
-  },
-  color: {
-    type: TigrisDataTypes.STRING
-  },
-  description: {
-    type: TigrisDataTypes.STRING
-  },
-  gender: {
-    type: TigrisDataTypes.STRING
-  },
-  name: {
-    type: TigrisDataTypes.STRING
-  },
-  review: {
-    type: TigrisDataTypes.STRING
-  },
-  starrating: {
-    type: TigrisDataTypes.NUMBER
-  },
-  price: {
-    type: TigrisDataTypes.NUMBER
-  },
-  sizes: {
-    type: TigrisDataTypes.ARRAY,
-    items: {
-      type: TigrisDataTypes.STRING
-    }
-  },
-  img: {
-    type: TigrisDataTypes.STRING
-  }
-}
+    @Field()
+    description: string;
+
+    @Field()
+    gender?: string;
+
+    @Field()
+    name: string;
+
+    @Field()
+    review: string;
+
+    @Field()
+    starrating: number;
+
+    @Field()
+    price: number;
+
+    @Field({elements: TigrisDataTypes.STRING})
+    sizes: string[];
+
+    @Field()
+    img: string;
+ };

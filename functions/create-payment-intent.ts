@@ -1,8 +1,8 @@
 // An endpoint that calculates the order total and creates a
 // PaymentIntent on Stripe
 import { Tigris } from "@tigrisdata/core"
+import { Product } from "../db/models/product"
 import * as dotenv from 'dotenv'
-import { Product, PRODUCTS_COLLECTION_NAME } from '~/db/models/product'
 dotenv.config()
 
 const axios = require("axios");
@@ -39,7 +39,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const products = tigrisDb.getCollection<Product>(PRODUCTS_COLLECTION_NAME);
+  const products = tigrisDb.getCollection<Product>(Product);
 
   // Stripe payment processing begins here
   try {
