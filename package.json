@@ -11,7 +11,7 @@
     "postbuild": "npm run setup",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "postgenerate": "npm run setup:prod",
+    "postgenerate": "npm run setup",
     "setup": "npx ts-node scripts/setup.ts"
   },
   "dependencies": {
