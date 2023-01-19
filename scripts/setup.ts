@@ -1,14 +1,15 @@
-import * as dotenv from "dotenv";
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
-
 import { Tigris } from '@tigrisdata/core';
 import data from '../static/storedata.json';
 import { Product } from '../db/models/product';
 
 async function main() {
-  // setup client & register schemas
+  // setup client
   const tigrisClient = new Tigris();
+  // ensure branch exists, create it if it needs to be created dynamically
+  await tigrisClient.getDatabase().initializeBranch();
+  // register schemas
   await tigrisClient.registerSchemas([Product]);
+
 
   // load some data in products collection
   const products = tigrisClient.getDatabase().getCollection(Product);

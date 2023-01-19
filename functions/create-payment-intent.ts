@@ -46,9 +46,7 @@ exports.handler = async (event, context) => {
     // but you could replace this with a DB lookup
     let amount = 0;
     for (let item of data.items) {
-      const product = await products.findOne({
-        id: item.id
-      })
+      const product = await products.findOne({ filter: { id: item.id } })
 
       if (product == undefined) {
         continue
